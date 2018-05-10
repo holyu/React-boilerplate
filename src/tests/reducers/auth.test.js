@@ -1,18 +1,18 @@
-import authReducers from "../../reducers/auth";
+import authReducers from '../../reducers/auth';
 
-test("should set uid for login", () => {
+test('should set uid for login', () => {
   const action = {
-    type: "LOGIN",
-    uid: "dsgsjihbn43jknsd"
+    type: 'LOGIN',
+    uid: 'dsgsjihbn43jknsd',
   };
   const state = authReducers({}, action);
   expect(state.uid).toBe(action.uid);
 });
 
-test("should clear uid for logout", () => {
-  const uid = "dsgsjihbn43jknsd";
+test('should clear uid for logout', () => {
+  const uid = 'dsgsjihbn43jknsd';
   const action = {
-    type: "LOGOUT"
+    type: 'LOGOUT',
   };
   const state = authReducers({ uid }, action);
   expect(state).toEqual({});

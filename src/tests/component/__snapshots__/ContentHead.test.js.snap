@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      <span>
+        React
+      </span>
+       / 
+      <span>
+        Sass
+      </span>
+       / 
+      <span>
+        Firebase
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/"
+      >
+        Click
+      </Link>
+    </div>
+  </div>
+</div>
+`;
