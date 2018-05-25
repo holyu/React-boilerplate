@@ -1,4 +1,16 @@
 {
-  "presets": ["env", "react"],
+  "presets": [
+    [
+      "env",
+      {
+        "debug": true,
+        "targets": {
+          "browsers": ["defaults"]
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "react"
+  ],
   "plugins": ["transform-class-properties", "transform-object-rest-spread"]
 }

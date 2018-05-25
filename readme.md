@@ -4,14 +4,14 @@
 
 Prod:
 
-* **Webpack** 4.8.1
-* **React** 16.3.2 + **Redux** 4.0.0
+* **Webpack** 4.8.3
+* **React** 16.4.0 + **Redux** 4.0.0
 * **Normalize** 8.0.0 + **Sass**
-* **Firebase** 5.0.1
+* **Firebase** 5.0.4
 
 Dev & test
 
-* **Jest** 22.4.3 + **Enzyme** 3.3.0
+* **Jest** 23.0.0 + **Enzyme** 3.3.0
 * **Eslint** 4.19.1 (**airbnb-config** 16.1.0)
 
 1.  `npm install`

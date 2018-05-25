@@ -19,10 +19,10 @@ const sourceMap = process.env.NODE_ENV === 'source_map';
 
 module.exports = {
   mode: productionMode ? 'production' : 'development',
-  entry: ['babel-polyfill', './src/app.jsx'],
+  entry: ['./src/app.jsx'],
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: '',
     filename: 'bundle.js',
   },
   optimization: {
@@ -70,15 +70,36 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { minimize: !!productionMode },
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        // use: ['file-loader'],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: './img/[name].[ext]',
+              limit: 10000,
+            },
+          },
+          {
+            loader: 'img-loader',
+          },
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
-      template: './src/index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       favicon: './src/images/favicon.png',
       minify: productionMode
@@ -91,7 +112,8 @@ module.exports = {
         : false,
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new UglifyJSPlugin({
       test: productionMode ? /\.js$/i : /$a/,
